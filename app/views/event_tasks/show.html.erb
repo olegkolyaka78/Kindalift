@@ -1,0 +1,78 @@
+<p id="notice"><%= notice %></p>
+<br>
+<br>
+
+<div class="card" style="width: 38rem;">
+  <div class="card shadow p-3 bg-white rounded">
+  <div class="card-body">
+    <h5 class="card-title">Event Task</h5>
+    <p class="card-text"></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @event_task.event.name %>
+</p>
+
+<p>
+  <strong>Event date and time:</strong>
+  <%= @event_task.event.start_time.strftime("%d %b (%a) %l:%M %p") %>
+</p>
+
+<p>
+  <strong>Event address:</strong>
+  <%= @event_task.event.address.name %>
+</p>
+
+<p>
+  <strong>Child:</strong>
+  <%= @event_task.child.full_name %>
+</p>
+
+<p>
+  <strong>Caregiver:</strong>
+  <%= @event_task.caregiver.full_name %>
+</p>
+
+<p>
+  <strong>Pick-up date:</strong>
+  <%= @event_task.start_time.strftime("%d %b (%a)") %>
+</p>
+
+<p>
+  <strong>Pick-up time:</strong>
+  <%= @event_task.start_time.strftime("%l:%M %p") %>
+</p>
+
+<p>
+  <strong>Pick-up address:</strong>
+  <%= @event_task.pickup_address %>
+</p>
+
+<p>
+  <strong>Drop-off date:</strong>
+  <%= @event_task.end_time.strftime("%d %b (%a)") %>
+</p>
+
+<p>
+  <strong>Drop-off time:</strong>
+  <%= @event_task.end_time.strftime("%l:%M %p") %>
+</p>
+
+<p>
+  <strong>Drop-off address:</strong>
+  <%= @event_task.pickup_address %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @event_task.priority %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @event_task.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_task_path(@event_task), class: "btn btn-outline-primary btn-sm" %> |
+<%= link_to 'All Event Tasks', event_tasks_path, class: "btn btn-outline-secondary btn-sm" %>

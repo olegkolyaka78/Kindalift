@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<br>
+<br>
+
+<p>
+  <strong>First name:</strong>
+  <%= @caregiver.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @caregiver.last_name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @caregiver.address.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @caregiver.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @caregiver.email %>
+</p>
+
+<%= link_to 'Edit', edit_caregiver_path(@caregiver) %> |
+<%= link_to 'New Caregiver', new_caregiver_path %> |
+<%= link_to 'Back to all caregivers', caregivers_path %>

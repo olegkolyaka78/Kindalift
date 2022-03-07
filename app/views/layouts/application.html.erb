@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kindalift</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if !flash[:alert].nil? %>
+      <p class="my_alert"><%= flash[:alert] %></p>
+    <% end %>
+    <%= yield %>
+  </body>
+<div class="fixed-top">
+  <nav class="navbar navbar-expand-sm   navbar-dark bg-primary">
+<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+  <li class="nav-item dropdown dmenu">
+  _________Kindalift by Oleg Kolyaka
+  </li>
+  <li class="nav-item dropdown dmenu">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Events
+  </a>
+  <div class="dropdown-menu sm-menu">
+    <%= link_to 'Events', events_path, class: "dropdown-item" %>
+    <%= link_to 'New Event', new_event_path, class: "dropdown-item" %>
+  </div>
+</li>
+ <li class="nav-item dropdown dmenu">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Event Tasks
+  </a>
+  <div class="dropdown-menu sm-menu">
+    <%= link_to 'Event Tasks', event_tasks_path, class: "dropdown-item" %>
+    <%= link_to 'New Event Task', new_event_task_path, class: "dropdown-item" %>
+  </div>
+  </li>
+  <li class="nav-item dropdown dmenu">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Children
+  </a>
+  <div class="dropdown-menu sm-menu">
+    <%= link_to 'Children', children_path, class: "dropdown-item" %>
+    <%= link_to 'New Child', new_child_path, class: "dropdown-item" %>
+  </div>
+  </li>
+  <li class="nav-item dropdown dmenu">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Caregivers
+  </a>
+  <div class="dropdown-menu sm-menu">
+    <%= link_to 'Caregivers', caregivers_path, class: "dropdown-item" %>
+    <%= link_to 'New Caregiver', new_caregiver_path, class: "dropdown-item" %>
+  </div>
+  </li>
+  <li class="nav-item dropdown dmenu">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Addresses
+  </a>
+  <div class="dropdown-menu sm-menu">
+    <%= link_to 'Addresses', addresses_path, class: "dropdown-item" %>
+    <%= link_to 'New Address', new_address_path, class: "dropdown-item" %>
+  </div>
+  </li>
+</li>
+</ul>
+</nav>
+</div>
+</html>

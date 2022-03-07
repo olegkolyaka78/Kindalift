@@ -1,0 +1,7 @@
+       <tr>
+
+        <td><%= event_task.status %></td>
+        <td><%= link_to "Show", event_event_task_path(@event, event_task), class: "btn btn-primary"  %></td>
+        <td><%= link_to "Edit", edit_event_event_task_path(@event, event_task), class: "btn btn-primary"  %></td>
+        <td><%= link_to "Delete", event_task_path(event_task), class: "btn btn-primary",  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

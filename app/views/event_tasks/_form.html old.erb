@@ -1,0 +1,45 @@
+<%= form_for [@event, event_task] do |form| %>
+  <% if event_task.errors.present? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event_task.errors.count, "error") %> prohibited this event_task from being saved:</h2>
+
+      <ul>
+        <% event_task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Pick-up date and time" %>
+    <%= form.datetime_select :start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Drop-off date and time" %>
+    <%= form.datetime_select :end_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :caregiver_id %>
+    <%= form.collection_select :caregiver_id, Caregiver.all, :id, :full_name, include_blank: true %>
+  </div>
+
+  <div class="field">
+    Priority<br />
+    <%= form.radio_button :priority, 'High' %> High<br />
+    <%= form.radio_button :priority, 'Medium' %> Medium<br />
+    <%= form.radio_button :priority, 'Low' %> Low<br />
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status, options_for_select([['Not Assigned'], ['Assigned'], 
+                                                            ['Cancelled'], ['Completed']]) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

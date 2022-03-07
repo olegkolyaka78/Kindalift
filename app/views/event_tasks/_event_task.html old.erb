@@ -1,0 +1,15 @@
+       <tr>
+        <td><%= event_task.start_time.strftime("%d %b (%a)") %></td>
+        <td><%= event_task.start_time.strftime("%I:%M %p") %></td>
+        <td><%= event_task.pickup_address.address.name %></td>
+        <td><%= event_task.end_time.strftime("%d %b (%a)") %></td>
+        <td><%= event_task.end_time.strftime("%I:%M %p") %></td>
+        <td><%= event_task.dropoff_address.address.name %></td>
+        <td><%= event_task.child.full_name %></td>
+        <td><%= event_task.caregiver.full_name %></td>
+        <td><%= event_task.priority %></td>
+        <td><%= event_task.status %></td>
+        <td><%= link_to "Show", event_event_task_path(@event, event_task), class: "btn btn-primary"  %></td>
+        <td><%= link_to "Edit", edit_event_event_task_path(@event, event_task), class: "btn btn-primary"  %></td>
+        <td><%= link_to 'Delete', event_task_path(event_task), class: "btn btn-primary",  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

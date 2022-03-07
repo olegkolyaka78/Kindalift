@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<br>
+<br>
+
+<h1>Caregivers</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caregivers.each do |caregiver| %>
+      <tr>
+        <td><%= caregiver.first_name %></td>
+        <td><%= caregiver.last_name %></td>
+        <td><%= caregiver.address.name %></td>
+        <td><%= caregiver.phone %></td>
+        <td><%= caregiver.email %></td>
+        <td><%= link_to 'Show', caregiver, class: "btn btn-outline-secondary btn-sm btn-block" %></td>
+        <td><%= link_to 'Edit', edit_caregiver_path(caregiver), class: "btn btn-outline-secondary btn-sm btn-block" %></td>
+        <td><%= link_to 'Destroy', caregiver, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm btn-block" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Caregiver', new_caregiver_path, class: "btn btn-outline-primary btn-sm" %>
+<%= link_to 'New Address', new_address_path, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'Children', children_path, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'Events', events_path, class: "btn btn-outline-secondary btn-sm" %>

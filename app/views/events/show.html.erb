@@ -1,0 +1,83 @@
+<p id="notice"><%= notice %></p>
+<br>
+<br>
+
+<p>
+  <strong>Event:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @event.start_time.strftime("%d %b (%a)") %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @event.start_time.strftime("%l:%M %p") %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @event.end_time.strftime("%d %b (%a)") %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @event.end_time.strftime("%l:%M %p") %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= link_to @event.address.name, address_path(@event.address) %>
+</p>
+
+<p>
+  <strong>Child:</strong>
+  <%= link_to @event.child.full_name, child_path(@event.child) %>
+</p>
+
+<p>
+  <strong>Child's phone number:</strong>
+  <%= @event.child.phone %>
+</p>
+
+<div id="event-tasks">
+
+  <% if @event.event_tasks.any? %>
+    <h1>Event tasks</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Pick-up date</th>
+          <th>Pick-up time</th>
+          <th>Pick-up address</th>
+          <th>Drop-off date</th>
+          <th>Drop-off time</th>
+          <th>Drop-off address</th>
+          <th>Caregiver</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @event.event_tasks %>
+      </tbody>
+    </table>
+<% end %>
+</div>
+
+<h2>Add an Event Task</h2>
+  
+  <%= render partial: "event_tasks/form", locals: {event_task: @event.event_tasks.new } %>
+
+<br>
+<br>
+
+<%= link_to 'Edit', edit_event_path(@event), class: "btn btn-outline-primary btn-sm" %>
+<%= link_to 'New Event', new_event_path %>, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'All Events', events_path %>, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'Children', children_path %>, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'Caregivers', caregivers_path %>, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'Addresses', addresses_path %>, class: "btn btn-outline-secondary btn-sm" %>
