@@ -1,11 +1,7 @@
 class Caregiver < ApplicationRecord
   has_many :events, through: :event_tasks
   has_many :event_tasks, dependent: :destroy
-  #has_many :children, dependent: :destroy
-  #validates_associated :event
-  #validates_associated :event_task
-  #validates_associated :child
-
+  has_many :children, through: :event_tasks
 
   belongs_to :address
   validates_associated :address

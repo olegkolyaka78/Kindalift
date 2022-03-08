@@ -8,15 +8,17 @@ class EventTask < ApplicationRecord
   validates_associated :event
   validates :event_id, presence: true 
   
-  belongs_to :address
-  validates_associated :address
-  validates :address_id, presence: true
+  #belongs_to :address
+  #validates_associated :address
+  #validates :address_id, presence: true
   
   belongs_to :child
   validates_associated :child
   validates :child_id, presence: true
 
   belongs_to :caregiver
+  validates_associated :caregiver
+  validates :caregiver_id, presence: true
 
   validates :start_time, presence: true
   validates :end_time, presence: true

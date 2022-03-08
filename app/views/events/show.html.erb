@@ -2,45 +2,38 @@
 <br>
 <br>
 
-<p>
-  <strong>Event:</strong>
-  <%= @event.name %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_time.strftime("%d %b (%a)") %>
-</p>
-
-<p>
-  <strong>Start time:</strong>
-  <%= @event.start_time.strftime("%l:%M %p") %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @event.end_time.strftime("%d %b (%a)") %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time.strftime("%l:%M %p") %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= link_to @event.address.name, address_path(@event.address) %>
-</p>
-
-<p>
-  <strong>Child:</strong>
-  <%= link_to @event.child.full_name, child_path(@event.child) %>
-</p>
-
-<p>
-  <strong>Child's phone number:</strong>
-  <%= @event.child.phone %>
-</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Event</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">Start Time</th>
+      <th scope="col">End Date</th>
+      <th scope="col">End Time</th>
+      <th scope="col">Event Address</th>
+      <th scope="col">Child</th>
+      <th scope="col">Child Phone</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @event.name %></td>
+        <td><%= @event.start_time.strftime("%d %b (%a)") %></td>
+        <td><%= @event.start_time.strftime("%l:%M %p") %></td>
+        <td><%= @event.end_time.strftime("%d %b (%a)") %></td>
+        <td><%= @event.end_time.strftime("%l:%M %p") %></td>
+        <td><%= @event.address.name %></td>
+        <td><%= @event.child.full_name %></td>
+        <td><%= @event.child.phone %></td>
+        <td><%= link_to 'Show', @event, class: "btn btn-outline-secondary btn-sm btn-block" %></td>
+        <td><%= link_to 'Edit', edit_event_path(@event), class: "btn btn-outline-secondary btn-sm btn-block" %></td>
+        <td><%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm btn-block" %></td>
+      </tr>
+  </tbody>
+</table>
 
 <div id="event-tasks">
 
@@ -76,8 +69,8 @@
 <br>
 
 <%= link_to 'Edit', edit_event_path(@event), class: "btn btn-outline-primary btn-sm" %>
-<%= link_to 'New Event', new_event_path %>, class: "btn btn-outline-secondary btn-sm" %>
-<%= link_to 'All Events', events_path %>, class: "btn btn-outline-secondary btn-sm" %>
-<%= link_to 'Children', children_path %>, class: "btn btn-outline-secondary btn-sm" %>
-<%= link_to 'Caregivers', caregivers_path %>, class: "btn btn-outline-secondary btn-sm" %>
-<%= link_to 'Addresses', addresses_path %>, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'New Event', new_event_path, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'All Events', events_path, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'Children', children_path, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'Caregivers', caregivers_path, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'Addresses', addresses_path, class: "btn btn-outline-secondary btn-sm" %>

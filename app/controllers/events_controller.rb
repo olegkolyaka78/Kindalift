@@ -3,13 +3,14 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
   before_action :set_child, only: [ :update, :create ]
   before_action :set_address, only: [ :update, :create ]
-  #before_action :set_event_task, only: [ :update, :create ]
+  before_action :set_event_task, only: [ :update, :create ]
 
   # GET /events or /events.json
   def index
     @events = Event.all
     #@events = Event.order(params[:sort])
-    render template: "events/index.html.erb", layout: "application"
+    #render template: "events/index.html.erb", layout: "application"
+    render :index
   end
 
   # GET /events/1 or /events/1.json
@@ -84,9 +85,9 @@ class EventsController < ApplicationController
       @child = Child.find(event_params[:child_id])
     end
 
-    #def set_event_task
-      #@event_task = EventTask.find(event_params[:event_task_id])
-    #end
+    def set_event_task
+      @event_task = EventTask.find(event_params[:event_task_id])
+    end
 
     # Only allow a list of trusted parameters through.
     def event_params
