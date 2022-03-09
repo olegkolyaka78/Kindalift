@@ -1,6 +1,9 @@
+<br>
+<br>
+
 <h1>Editing Caregiver</h1>
 
 <%= render 'form', caregiver: @caregiver %>
 
-<%= link_to 'Show', @caregiver %> |
-<%= link_to 'Back to all caregivers', caregivers_path %>
+<%= link_to 'Show', @caregiver, class: "btn btn-outline-primary btn-sm" %>
+<%= link_to 'All Caregivers', caregivers_path, class: "btn btn-outline-secondary btn-sm" %>

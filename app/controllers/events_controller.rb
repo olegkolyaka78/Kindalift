@@ -1,15 +1,16 @@
 class EventsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   before_action :set_event, only: %i[ show edit update destroy ]
-  before_action :set_child, only: [ :update, :create ]
-  before_action :set_address, only: [ :update, :create ]
+  #before_action :set_child, only: [ :update, :create ]
+  #before_action :set_address, only: [ :update, :create ]
   #before_action :set_event_task, only: [ :update, :create ]
 
   # GET /events or /events.json
   def index
     @events = Event.all
     #@events = Event.order(params[:sort])
-    render template: "events/index.html.erb", layout: "application"
+    #render template: "events/index.html.erb", layout: "application"
+    render :index
   end
 
   # GET /events/1 or /events/1.json
@@ -76,13 +77,13 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
-    def set_address
-      @address = Address.find(event_params[:address_id])
-    end
+    #def set_address
+      #@address = Address.find(event_params[:address_id])
+    #end
 
-    def set_child
-      @child = Child.find(event_params[:child_id])
-    end
+    #def set_child
+      #@child = Child.find(event_params[:child_id])
+    #end
 
     #def set_event_task
       #@event_task = EventTask.find(event_params[:event_task_id])

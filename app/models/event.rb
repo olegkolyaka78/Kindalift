@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  has_many :event_tasks
+  has_many :event_tasks, dependent: :destroy
   #has_many :children # for calendar view
   #has_many :caregivers
   

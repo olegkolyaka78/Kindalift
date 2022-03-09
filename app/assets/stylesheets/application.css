@@ -15,6 +15,11 @@
  *= require_tree .
  *= require_self
  */
+
+ .my-own-style {
+  margin-top: 100px;
+}
+
  @font-face {
     font-family: 'FONT';
     src: url('LibreBaskerville-Bold.ttf');
@@ -23,3 +28,19 @@
  h1 {
    font-family: 'FONT';
  }
+
+ h2 {
+  font-family: 'FONT';
+}
+
+ h3 {
+  font-family: 'FONT';
+}
+
+ h4 {
+  font-family: 'FONT';
+}
+
+ h5 {
+  font-family: 'FONT';
+}

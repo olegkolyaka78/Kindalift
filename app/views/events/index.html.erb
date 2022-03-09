@@ -23,7 +23,7 @@
 
 <h1>Events</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th><%= link_to "Event", :sort => "event.name"%> </th>
@@ -33,8 +33,9 @@
       <th><%= link_to "End time", :sort => "event.end_time"%> </th>
       <th><%= link_to "Address", :sort => "address.name"%> </th>
       <th><%= link_to "Child", :sort => "child.full_name"%> </th>
-
-      <th colspan="3"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
 
@@ -48,9 +49,9 @@
         <td><%= event.end_time.strftime("%l:%M %p") %></td>
         <td><%= event.address.name %></td>
         <td><%= event.child.full_name %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', event, class: "btn btn-outline-secondary btn-sm btn-block" %></td>
+        <td><%= link_to 'Edit', edit_event_path(event), class: "btn btn-outline-secondary btn-sm btn-block" %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm btn-block" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -58,7 +59,7 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %> |
-<%= link_to 'Children', children_path %> |
-<%= link_to 'Caregivers', caregivers_path %> |
-<%= link_to 'Addresses', addresses_path %> |
+<%= link_to 'New Event', new_event_path, class: "btn btn-outline-primary btn-sm"  %>
+<%= link_to 'Children', children_path, class: "btn btn-outline-secondary btn-sm"  %>
+<%= link_to 'Caregivers', caregivers_path, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'Addresses', addresses_path, class: "btn btn-outline-secondary btn-sm" %>

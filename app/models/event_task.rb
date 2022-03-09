@@ -17,13 +17,13 @@ class EventTask < ApplicationRecord
   validates :child_id, presence: true
 
   belongs_to :caregiver
+  #validates_associated :caregiver
+  #validates :caregiver_id, presence: true
 
+  validates :name, presence: true
   validates :start_time, presence: true
-  validates :end_time, presence: true
   validates :priority, presence: true
   validates :status, presence: true
-  validates :pickup_address, presence: true
-  validates :dropoff_address, presence: true
 
 
 end

@@ -1,28 +1,47 @@
 <p id="notice"><%= notice %></p>
 <br>
 <br>
-<h1>Event Tasks</h1>
 
-<table>
+<%= week_calendar events: @event_tasks do |date, event_tasks| %>
+  
+  <span class="date-str"><%= date.day %></span>
+  
+  <% event_tasks.each do |event_task| %>
+    <div>
+      <p><strong><%= link_to event_task.event.name, event_path(event_task.event)%></strong></p>
+      <p>Child: <strong><%= link_to event_task.child.full_name, child_path(event_task.child)%></strong></p>
+      <p>Time: <strong><%= event_task.start_time.strftime("%l:%M %p") %></strong></p>
+      <p>Address: <strong><%= link_to event_task.address.name, address_path(event_task.address) %></strong></p>
+      <p>Caregiver: <strong><%= link_to event_task.caregiver.full_name, caregiver_path(event_task.caregiver)%></strong></p>
+      <p><%= event_task.priority %>
+      <p><%= event_task.status %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= form_with event_task: @event_task, local: true do |f| %>
+  <%= f.date_field :date, id:"date" %>
+<% end %>
+<br>
+<h1>Event Tasks</h1>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Event</th>
-      <th>Event date and time</th>
-      <th>Event address</th>
-      <th>Child</th>
-      <th>Caregiver</th>
-      <th>Pick-up date</th>
-      <th>Pick-up time</th>
-      <th>Pick-up address</th>
-      <th>Drop-off date</th>
-      <th>Drop-off time</th>
-      <th>Drop-off address</th>
-      <th>Priority</th>
-      <th>Status</th>
-      <th colspan="3"></th>
+      <th><%= link_to "Event", :sort => "event.name" %> </th>
+      <th><%= link_to "Event Date and Time", :sort => "event.start_time" %> </th>
+      <th><%= link_to "Event Address", :sort => "address.name" %> </th>
+      <th><%= link_to "Child", :sort => "child.full_name" %> </th>
+      <th><%= link_to "Caregiver", :sort => "caregiver.full_name" %> </th>
+      <th><%= link_to "Event Task Date", :sort => "event_task.start_time" %> </th>
+      <th><%= link_to "Event Task Time", :sort => "event_task.start_time" %> </th>
+      <th><%= link_to "Event Task Address", :sort => "address.name" %> </th>
+      <th><%= link_to "Priority", :sort => "event_task.priority" %> </th>
+      <th><%= link_to "Status", :sort => "event_task.status" %> </th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @event_tasks.each do |event_task| %>
       <tr>
@@ -33,15 +52,12 @@
         <td><%= event_task.caregiver.full_name %></td>
         <td><%= event_task.start_time.strftime(("%d %b (%a)")) %></td>
         <td><%= event_task.start_time.strftime(("%l:%M %p")) %></td>
-        <td><%= event_task.pickup_address %></td>
-        <td><%= event_task.end_time.strftime(("%d %b (%a)")) %></td>
-        <td><%= event_task.end_time.strftime(("%l:%M %p")) %></td>
-        <td><%= event_task.dropoff_address %></td>
+        <td><%= event_task.address.name %></td>
         <td><%= event_task.priority %></td>
         <td><%= event_task.status %></td>
-        <td><%= link_to 'Show', event_task %></td>
-        <td><%= link_to 'Edit', edit_event_task_path(event_task) %></td>
-        <td><%= link_to 'Destroy', event_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', event_task, class: "btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_event_task_path(event_task), class: "btn btn-outline-secondary btn-sm" %></td>
+        <td><%= link_to 'Destroy', event_task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -49,8 +65,8 @@
 
 <br>
 
-<%= link_to 'All Events', events_path %> |
-<%= link_to 'New Event', new_event_path %> |
-<%= link_to 'Children', children_path %> |
-<%= link_to 'Caregivers', caregivers_path %> |
-<%= link_to 'Addresses', addresses_path %> 
+<%= link_to 'All Events', events_path, class: "btn btn-outline-primary btn-sm" %>
+<%= link_to 'New Event', new_event_path, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'Children', children_path, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'Caregivers', caregivers_path, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'Addresses', addresses_path, class: "btn btn-outline-secondary btn-sm" %>

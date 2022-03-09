@@ -73,4 +73,10 @@ class CaregiversController < ApplicationController
     def caregiver_params
       params.require(:caregiver).permit(:first_name, :last_name, :phone, :email, :address_id)
     end
+
+    def catch_not_found(e)
+      Rails.logger.debug("We had a not found exception.")
+      flash.alert = e.to_s
+      redirect_to events_url
+    end
 end
