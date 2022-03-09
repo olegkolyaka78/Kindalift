@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     #resources :events # for show task
     resources :caregivers
     resources :children
-    #resources :addresses
+    resources :addresses
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

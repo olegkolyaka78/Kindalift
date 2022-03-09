@@ -4,8 +4,8 @@ class EventTasksController < ApplicationController
   before_action :set_event_task, only: %i[ show edit update destroy ]
   before_action :set_event, only: [ :update, :create ]
   #before_action :set_address, only: [ :update, :create ]
-  before_action :set_child, only: [ :update, :create ]
-  before_action :set_caregiver, only: [ :update, :create ]
+  #before_action :set_child, only: [ :update, :create ]
+  #before_action :set_caregiver, only: [ :update, :create ]
   #layout 'event_task_layout'
 
   # GET /event_tasks or /event_tasks.json
@@ -98,14 +98,14 @@ class EventTasksController < ApplicationController
       @event = Event.find(event_task_params[:event_id])
     end
 
-    def set_child
+    #def set_child
       #@child = Child.find_by(params[:id])
-      @child = Child.find(event_task_params[:child_id])
-    end
+      #@child = Child.find(event_task_params[:child_id])
+    #end
 
-    def set_caregiver
-      @caregiver = Caregiver.find(event_task_params[:caregiver_id])
-    end
+    #def set_caregiver
+      #@caregiver = Caregiver.find(event_task_params[:caregiver_id])
+    #end
 
     #def set_address
       #@address = Address.find(event_task_params[:address_id])
@@ -117,7 +117,7 @@ class EventTasksController < ApplicationController
     def event_task_params
       params.require(:event_task).permit(:name, :start_time, :pickup_address, :end_time, :dropoff_address, 
                                          :priority, :status, :child_id,
-                                         :event_id, :caregiver_id)
+                                         :event_id, :caregiver_id, :address_id)
     end
 
     def catch_not_found(e)
