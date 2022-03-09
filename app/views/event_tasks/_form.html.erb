@@ -1,8 +1,11 @@
 <%= form_for([@event, event_task]) do |form| %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <div class="field">
+    <%= form.label "Event Task" %>
+    <%= form.radio_button :name, 'Pick-up at home' %> Pick-up at home<br />
+    <%= form.radio_button :name, 'Drop-off at event' %> Drop-off at event<br />
+    <%= form.radio_button :name, 'Pick-up at event' %> Pick-up at event<br />
+    <%= form.radio_button :name, 'Drop-off at home' %> Drop-off at home<br />
   </div>
 
   <div class="field">                                                 
@@ -16,23 +19,13 @@
   </div>
 
   <div class="field">
-    <%= form.label "Pick-up date and time" %>
+    <%= form.label "Date and Time" %>
     <%= form.datetime_select :start_time %>
   </div>
 
   <div class="field"> 
-    <%= form.label "Pick-up address" %>
-    <%= form.text_field :pickup_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Drop-off date and time" %>
-    <%= form.datetime_select :end_time %>
-  </div>
-    
-  <div class="field"> 
-    <%= form.label "Drop-off address" %>
-    <%= form.text_field :dropoff_address %>
+    <%= form.label "Address" %>
+    <%= form.collection_select :address_id, Address.all, :id, :name, include_blank: true %>
   </div>
 
   <div class="field">

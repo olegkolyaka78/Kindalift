@@ -14,12 +14,12 @@
 </p>
 
 <p>
-  <strong>Event date and time:</strong>
+  <strong>Event Date and Time:</strong>
   <%= @event_task.event.start_time.strftime("%d %b (%a) %l:%M %p") %>
 </p>
 
 <p>
-  <strong>Event address:</strong>
+  <strong>Event Address:</strong>
   <%= @event_task.event.address.name %>
 </p>
 
@@ -34,33 +34,23 @@
 </p>
 
 <p>
-  <strong>Pick-up date:</strong>
+  <strong>Event Task:</strong>
+  <%= @event_task.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
   <%= @event_task.start_time.strftime("%d %b (%a)") %>
 </p>
 
 <p>
-  <strong>Pick-up time:</strong>
+  <strong>Time:</strong>
   <%= @event_task.start_time.strftime("%l:%M %p") %>
 </p>
 
 <p>
-  <strong>Pick-up address:</strong>
-  <%= @event_task.pickup_address %>
-</p>
-
-<p>
-  <strong>Drop-off date:</strong>
-  <%= @event_task.end_time.strftime("%d %b (%a)") %>
-</p>
-
-<p>
-  <strong>Drop-off time:</strong>
-  <%= @event_task.end_time.strftime("%l:%M %p") %>
-</p>
-
-<p>
-  <strong>Drop-off address:</strong>
-  <%= @event_task.pickup_address %>
+  <strong>Address:</strong>
+  <%= @event_task.address.name %>
 </p>
 
 <p>
@@ -74,5 +64,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_event_task_path(@event_task), class: "btn btn-outline-primary btn-sm" %> |
+<%= link_to 'Edit', edit_event_task_path(@event_task), class: "btn btn-outline-primary btn-sm" %>
 <%= link_to 'All Event Tasks', event_tasks_path, class: "btn btn-outline-secondary btn-sm" %>

@@ -2,6 +2,12 @@
 <br>
 <br>
 
+<div class="card" style="width: 38rem;">
+  <div class="card shadow p-3 bg-white rounded">
+  <div class="card-body">
+    <h5 class="card-title">Child</h5>
+    <p class="card-text"></p>
+
 <p>
   <strong>First name:</strong>
   <%= @child.first_name %>
@@ -22,6 +28,6 @@
   <%= @child.phone %>
 </p>
 
-<%= link_to 'Edit', edit_child_path(@child) %> |
-<%= link_to 'New Child', new_child_path %> |
-<%= link_to 'Back to all children', children_path %>
+<%= link_to 'Edit', edit_child_path(@child), class: "btn btn-outline-primary btn-sm" %>
+<%= link_to 'New Child', new_child_path, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to 'All Children', children_path, class: "btn btn-outline-secondary btn-sm" %>

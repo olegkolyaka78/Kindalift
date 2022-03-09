@@ -10,10 +10,8 @@
     <div>
       <p><strong><%= link_to event_task.event.name, event_path(event_task.event)%></strong></p>
       <p>Child: <strong><%= link_to event_task.child.full_name, child_path(event_task.child)%></strong></p>
-      <p>Pick-up at <strong><%= event_task.start_time.strftime("%l:%Mpm") %></strong></p>
-      <p><strong><%= event_task.pickup_address %></strong></p>
-      <p>Drop-off at <strong><%= event_task.event.start_time.strftime("%l:%Mpm") %></strong></p>
-      <p><strong><%=event_task.event.address.name %></strong></p>
+      <p>Time: <strong><%= event_task.start_time.strftime("%l:%M %p") %></strong></p>
+      <p>Address: <strong><%= link_to event_task.address.name, address_path(event_task.address) %></strong></p>
       <p>Caregiver: <strong><%= link_to event_task.caregiver.full_name, caregiver_path(event_task.caregiver)%></strong></p>
       <p><%= event_task.priority %>
       <p><%= event_task.status %>
@@ -29,19 +27,16 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= link_to "Event", :sort => "event.name"%> </th>
-      <th><%= link_to "Event Date and Time", :sort => "event.start_time"%> </th>
-      <th><%= link_to "Event Address", :sort => "address.name"%> </th>
-      <th><%= link_to "Child", :sort => "child.full_name"%> </th>
-      <th><%= link_to "Caregiver", :sort => "caregiver.full_name"%> </th>
-      <th><%= link_to "Pick-up Date", :sort => "event_task.start_time"%> </th>
-      <th><%= link_to "Pick-up Time", :sort => "event_task.start_time"%> </th>
-      <th><%= link_to "Pick-up Address", :sort => "event_task.pickup_address"%> </th>
-      <th><%= link_to "Drop-off Date", :sort => "event_task.end_time"%> </th>
-      <th><%= link_to "Drop-off Time", :sort => "event_task.end_time"%> </th>
-      <th><%= link_to "Drop-off Address", :sort => "event_task.dropoff_address"%> </th>
-      <th><%= link_to "Priority", :sort => "event_task.priority"%> </th>
-      <th><%= link_to "Status", :sort => "event_task.status"%> </th>
+      <th><%= link_to "Event", :sort => "event.name" %> </th>
+      <th><%= link_to "Event Date and Time", :sort => "event.start_time" %> </th>
+      <th><%= link_to "Event Address", :sort => "address.name" %> </th>
+      <th><%= link_to "Child", :sort => "child.full_name" %> </th>
+      <th><%= link_to "Caregiver", :sort => "caregiver.full_name" %> </th>
+      <th><%= link_to "Event Task Date", :sort => "event_task.start_time" %> </th>
+      <th><%= link_to "Event Task Time", :sort => "event_task.start_time" %> </th>
+      <th><%= link_to "Event Task Address", :sort => "address.name" %> </th>
+      <th><%= link_to "Priority", :sort => "event_task.priority" %> </th>
+      <th><%= link_to "Status", :sort => "event_task.status" %> </th>
       <th scope="col"></th>
       <th scope="col"></th>
       <th scope="col"></th>
@@ -57,10 +52,7 @@
         <td><%= event_task.caregiver.full_name %></td>
         <td><%= event_task.start_time.strftime(("%d %b (%a)")) %></td>
         <td><%= event_task.start_time.strftime(("%l:%M %p")) %></td>
-        <td><%= event_task.pickup_address %></td>
-        <td><%= event_task.end_time.strftime(("%d %b (%a)")) %></td>
-        <td><%= event_task.end_time.strftime(("%l:%M %p")) %></td>
-        <td><%= event_task.dropoff_address %></td>
+        <td><%= event_task.address.name %></td>
         <td><%= event_task.priority %></td>
         <td><%= event_task.status %></td>
         <td><%= link_to 'Show', event_task, class: "btn btn-outline-primary btn-sm" %></td>

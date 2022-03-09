@@ -2,6 +2,12 @@
 <br>
 <br>
 
+<div class="card" style="width: 38rem;">
+  <div class="card shadow p-3 bg-white rounded">
+  <div class="card-body">
+    <h5 class="card-title">Caregiver</h5>
+    <p class="card-text"></p>
+
 <p>
   <strong>First name:</strong>
   <%= @caregiver.first_name %>
@@ -27,6 +33,6 @@
   <%= @caregiver.email %>
 </p>
 
-<%= link_to 'Edit', edit_caregiver_path(@caregiver) %> |
-<%= link_to 'New Caregiver', new_caregiver_path %> |
-<%= link_to 'Back to all caregivers', caregivers_path %>
+<%= link_to 'Edit', edit_caregiver_path(@caregiver), class: "btn btn-outline-primary btn-sm"  %>
+<%= link_to 'New Caregiver', new_caregiver_path, class: "btn btn-outline-secondary btn-sm"  %>
+<%= link_to 'All Caregivers', caregivers_path, class: "btn btn-outline-secondary btn-sm"  %>
