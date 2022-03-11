@@ -1,6 +1,6 @@
 class Child < ApplicationRecord
-  has_many :events
-  has_many :event_tasks
+  has_many :events, dependent: :destroy
+  has_many :event_tasks, dependent: :destroy
   has_many :caregivers, through: :event_tasks
 
   belongs_to :address

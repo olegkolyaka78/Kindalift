@@ -5,7 +5,13 @@ class CaregiversController < ApplicationController
 
   # GET /caregivers or /caregivers.json
   def index
-    @caregivers = Caregiver.all
+    if params[:sort] != "address_id"
+      @caregivers = Caregiver.order(params[:sort])
+    elsif params[:sort] == "address_id"
+      @caregivers = Caregiver.all.sort_by{|caregiver| caregiver.address.name}
+    else
+      @caregivers = Caregiver.all
+    end
   end
 
   # GET /caregivers/1 or /caregivers/1.json
@@ -77,6 +83,6 @@ class CaregiversController < ApplicationController
     def catch_not_found(e)
       Rails.logger.debug("We had a not found exception.")
       flash.alert = e.to_s
-      redirect_to events_url
+      redirect_to caregivers_url
     end
 end

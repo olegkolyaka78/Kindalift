@@ -16,31 +16,66 @@
  *= require_self
  */
 
+
  .my-own-style {
-  margin-top: 100px;
+  margin-top: 250px;
 }
 
+
+body { padding-top: 100px; }
+
  @font-face {
-    font-family: 'FONT';
+    font-family: 'FONT 1';
     src: url('LibreBaskerville-Bold.ttf');
  }
 
+ @font-face {
+  font-family: 'FONT 2';
+  src: url('MPLUS1p-Regular.ttf');
+}
+
+* {
+  font-family: 'FONT 2';
+}
+
+
  h1 {
-   font-family: 'FONT';
+   font-family: 'FONT 1';
  }
 
  h2 {
-  font-family: 'FONT';
+  font-family: 'FONT 1';
 }
 
  h3 {
-  font-family: 'FONT';
+  font-family: 'FONT 1';
 }
 
  h4 {
-  font-family: 'FONT';
+  font-family: 'FONT 1';
 }
 
  h5 {
-  font-family: 'FONT';
+  font-family: 'FONT 1';
 }
+
+.logo-image {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: visible;
+  margin-top: -6px;
+  padding-right: 150px;
+  }
+
+  .jumbotron {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+<li class="nav-item">
+  <a class="nav-link" href="#">
+  <%= link_to 'KINDALIFT', events_path %>
+  </a>
+</li>

@@ -1,18 +1,19 @@
 <p id="notice"><%= notice %></p>
 <br>
 <br>
-
+<br>
+<h1>Event</h1>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">Event</th>
+      <th scope="col">Event Name</th>
       <th scope="col">Start Date</th>
       <th scope="col">Start Time</th>
       <th scope="col">End Date</th>
       <th scope="col">End Time</th>
       <th scope="col">Event Address</th>
       <th scope="col">Child</th>
-      <th scope="col">Contact Phone#</th>
+      <th scope="col">Contact Phone</th>
       <th scope="col"></th>
       <th scope="col"></th>
     </tr>
@@ -21,9 +22,9 @@
       <tr>
         <td><%= @event.name %></td>
         <td><%= @event.start_time.strftime("%d %b (%a)") %></td>
-        <td><%= @event.start_time.strftime("%l:%M %p") %></td>
+        <td><%= @event.start_time.strftime("%l:%M%p") %></td>
         <td><%= @event.end_time.strftime("%d %b (%a)") %></td>
-        <td><%= @event.end_time.strftime("%l:%M %p") %></td>
+        <td><%= @event.end_time.strftime("%l:%M%p") %></td>
         <td><%= @event.address.name %></td>
         <td><%= @event.child.full_name %></td>
         <td><%= @event.child.phone %></td>

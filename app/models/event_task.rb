@@ -1,8 +1,4 @@
 class EventTask < ApplicationRecord
-  #has_many :addresses
-  #has_many :children
-  #has_many :caregivers
-  #has_many :events
   
   belongs_to :event
   validates_associated :event
@@ -17,8 +13,6 @@ class EventTask < ApplicationRecord
   validates :child_id, presence: true
 
   belongs_to :caregiver
-  #validates_associated :caregiver
-  #validates :caregiver_id, presence: true
 
   validates :name, presence: true
   validates :start_time, presence: true
