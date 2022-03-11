@@ -15,7 +15,7 @@
 
 <p>
   <strong>Event Date and Time:</strong>
-  <%= @event_task.event.start_time.strftime("%d %b (%a) %l:%M %p") %>
+  <%= @event_task.event.start_time.strftime("%d %b (%a) %l:%M%p") %>
 </p>
 
 <p>
@@ -45,7 +45,7 @@
 
 <p>
   <strong>Time:</strong>
-  <%= @event_task.start_time.strftime("%l:%M %p") %>
+  <%= @event_task.start_time.strftime("%l:%M%p") %>
 </p>
 
 <p>

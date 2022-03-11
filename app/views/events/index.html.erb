@@ -10,7 +10,8 @@
     <div>
       <p><strong><%= link_to event.name, event_path(event) %></strong></p>
       <p><strong><%= link_to event.child.full_name, child_path(event.child) %></strong></p>
-      <p><strong><%= event.start_time.strftime("%l:%M %p") %></strong> - <strong><%= event.end_time.strftime("%l:%M %p")  %></strong></p>
+      <p><strong><%= event.start_time.strftime("%l:%M%p") %></strong> - 
+         <strong><%= event.end_time.strftime("%l:%M%p")  %></strong></p>
     </div>
   <% end %>
 <% end %>
@@ -44,9 +45,9 @@
       <tr>
         <td><%= event.name %></td>
         <td><%= event.start_time.strftime("%d %b (%a)") %></td>
-        <td><%= event.start_time.strftime("%l:%M %p") %></td>
+        <td><%= event.start_time.strftime("%l:%M%p") %></td>
         <td><%= event.end_time.strftime("%d %b (%a)") %></td>
-        <td><%= event.end_time.strftime("%l:%M %p") %></td>
+        <td><%= event.end_time.strftime("%l:%M%p") %></td>
         <td><%= event.address.name %></td>
         <td><%= event.child.full_name %></td>
         <td><%= link_to 'Show', event, class: "btn btn-outline-secondary btn-sm btn-block" %></td>

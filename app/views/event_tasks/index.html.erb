@@ -10,7 +10,8 @@
     <div>
       <p><strong><%= link_to event_task.event.name, event_path(event_task.event)%></strong></p>
       <p>Child: <strong><%= link_to event_task.child.full_name, child_path(event_task.child)%></strong></p>
-      <p>Time: <strong><%= event_task.start_time.strftime("%l:%M %p") %></strong></p>
+      <p>Task: <strong><%= link_to event_task.name, event_task_path(event_task)%></strong></p>
+      <p>Time: <strong><%= event_task.start_time.strftime("%l:%M%p") %></strong></p>
       <p>Address: <strong><%= link_to event_task.address.name, address_path(event_task.address) %></strong></p>
       <p>Caregiver: <strong><%= link_to event_task.caregiver.full_name, caregiver_path(event_task.caregiver)%></strong></p>
       <p><%= event_task.priority %>
@@ -31,10 +32,11 @@
       <th><%= link_to "Event Date and Time", :sort => "event.start_time" %> </th>
       <th><%= link_to "Event Address", :sort => "address.name" %> </th>
       <th><%= link_to "Child", :sort => "child.full_name" %> </th>
-      <th><%= link_to "Caregiver", :sort => "caregiver.full_name" %> </th>
+      <th><%= link_to "Event Task", :sort => "event_task.name" %> </th>
       <th><%= link_to "Event Task Date", :sort => "event_task.start_time" %> </th>
       <th><%= link_to "Event Task Time", :sort => "event_task.start_time" %> </th>
       <th><%= link_to "Event Task Address", :sort => "address.name" %> </th>
+      <th><%= link_to "Caregiver", :sort => "caregiver.full_name" %> </th>
       <th><%= link_to "Priority", :sort => "event_task.priority" %> </th>
       <th><%= link_to "Status", :sort => "event_task.status" %> </th>
       <th scope="col"></th>
@@ -46,13 +48,14 @@
     <% @event_tasks.each do |event_task| %>
       <tr>
         <td><%= event_task.event.name %></td>
-        <td><%= event_task.event.start_time.strftime(("%d %b (%a) %l:%M %p")) %></td>
+        <td><%= event_task.event.start_time.strftime(("%d %b (%a) %l:%M%p")) %></td>
         <td><%= event_task.event.address.name %></td>
         <td><%= event_task.child.full_name %></td>
         <td><%= event_task.caregiver.full_name %></td>
         <td><%= event_task.start_time.strftime(("%d %b (%a)")) %></td>
-        <td><%= event_task.start_time.strftime(("%l:%M %p")) %></td>
+        <td><%= event_task.start_time.strftime(("%l:%M%p")) %></td>
         <td><%= event_task.address.name %></td>
+        <td><%= event_task.caregiver.full_name %></td>
         <td><%= event_task.priority %></td>
         <td><%= event_task.status %></td>
         <td><%= link_to 'Show', event_task, class: "btn btn-outline-primary btn-sm" %></td>
