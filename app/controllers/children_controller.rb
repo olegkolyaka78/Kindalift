@@ -77,7 +77,7 @@ class ChildrenController < ApplicationController
     def catch_not_found(e)
       Rails.logger.debug("We had a not found exception.")
       flash.alert = e.to_s
-      redirect_to events_url
+      redirect_to children_url
     end
-    
+
 end

@@ -1,7 +1,7 @@
        <tr>
         <td><%= event_task.name %></td>
         <td><%= event_task.start_time.strftime("%d %b (%a)") %></td>
-        <td><%= event_task.start_time.strftime("%I:%M %p") %></td>
+        <td><%= event_task.start_time.strftime("%I:%M%p") %></td>
         <td><%= event_task.address.name %></td>
         <td><%= event_task.child.full_name %></td>
         <td><%= event_task.caregiver.full_name %></td>

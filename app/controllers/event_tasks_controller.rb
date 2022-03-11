@@ -77,8 +77,6 @@ class EventTasksController < ApplicationController
   def destroy
     #@event_task = EventTask.find(params[:id])
     @event_task.destroy
-    redirect_to event_tasks_path
-
 
     respond_to do |format|
       format.html { redirect_to event_tasks_url, notice: "Event task was successfully destroyed." }
@@ -115,8 +113,7 @@ class EventTasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_task_params
-      params.require(:event_task).permit(:name, :start_time, :pickup_address, :end_time, :dropoff_address, 
-                                         :priority, :status, :child_id,
+      params.require(:event_task).permit(:name, :start_time, :priority, :status, :child_id,
                                          :event_id, :caregiver_id, :address_id)
     end
 
