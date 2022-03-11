@@ -1,7 +1,7 @@
 <%= form_for([@event, event_task]) do |form| %>
-
+    
     <div class="field">
-    <%= form.label "Event Task" %>
+    <%= form.label :event_task %>
     <%= form.radio_button :name, 'Pick-up at home' %> Pick-up at home<br />
     <%= form.radio_button :name, 'Drop-off at event' %> Drop-off at event<br />
     <%= form.radio_button :name, 'Pick-up at event' %> Pick-up at event<br />

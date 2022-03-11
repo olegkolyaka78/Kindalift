@@ -1,6 +1,39 @@
 <br>
 <br>
 
+<h1>Event</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Event Name</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">Start Time</th>
+      <th scope="col">End Date</th>
+      <th scope="col">End Time</th>
+      <th scope="col">Event Address</th>
+      <th scope="col">Child</th>
+      <th scope="col">Contact Phone</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @event_task.event.name %></td>
+        <td><%= @event_task.event.start_time.strftime("%d %b (%a)") %></td>
+        <td><%= @event_task.event.start_time.strftime("%l:%M%p") %></td>
+        <td><%= @event_task.event.end_time.strftime("%d %b (%a)") %></td>
+        <td><%= @event_task.event.end_time.strftime("%l:%M%p") %></td>
+        <td><%= @event_task.event.address.name %></td>
+        <td><%= @event_task.event.child.full_name %></td>
+        <td><%= @event_task.event.child.phone %></td>
+        <td><%= link_to 'Edit', edit_event_path(@event_task.event), class: "btn btn-outline-secondary btn-sm btn-block" %></td>
+        <td><%= link_to 'Destroy', @event_task.event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm btn-block" %></td>
+      </tr>
+  </tbody>
+</table>
+
+
 <h1>Editing Event Task</h1>
 
 <%= render partial:'form', locals: {event_task: @event_task} %>
