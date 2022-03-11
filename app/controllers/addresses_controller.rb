@@ -55,11 +55,10 @@ class AddressesController < ApplicationController
 
   def destroy
     @address.destroy
-
     respond_to do |format|
-      format.html { redirect_to addresses_url, notice: "Address was successfully destroyed." }
-      format.json { head :no_content }
-    end
+        format.html { redirect_to addresses_url}
+        format.json { head :no_content }
+      end
   end
 
   private
@@ -78,5 +77,7 @@ class AddressesController < ApplicationController
       flash.alert = e.to_s
       redirect_to addresses_url
     end
+
+    
 
 end

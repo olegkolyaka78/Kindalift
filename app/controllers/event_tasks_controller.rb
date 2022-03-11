@@ -63,7 +63,8 @@ class EventTasksController < ApplicationController
         #format.json { render :show, status: :ok, location: @event_task }
         flash.notice = "The event task was updated successfully."
         #redirect_to event_task_path(@event_task)
-        redirect_to event_tasks_path
+        #redirect_to event_tasks_path
+        redirect_to @event
       else
         #format.html { render :edit, status: :unprocessable_entity }
         #format.json { render json: @event_task.errors, status: :unprocessable_entity }
